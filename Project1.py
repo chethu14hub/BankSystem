@@ -1,17 +1,25 @@
-class bank:
-    def __init__(self,name="",city="",ac_number=""):
-        self.name=name
-        self.city=city
-        self.ac_number=ac_number
+class Account:
+    def __init__(self,id,holder_name,balance):
+        self.id=id
+        self.holder_name=holder_name
+        self._balance=0
 
-    def create_ac(self):
-        self.name=input("Enter your name ")
-        self.city=input("Enter your city ")
-        self.ac_number=int(input("Enter your account number "))
+    def check_balance(self):
+        print(f"Your balance is{self._balance}")
+    
+    def deposite(self,amount):
+        amount=int(input("Enter the amount to deposit"))
+        self._balance+=amount
+        print(f"Your balance is {self._balance}")
+    
+    def withdraw(self,amount):
+        if(amount>=0):
+            print("Insufficant balance")
+        else:
+            amount=int(input("Enter the amount to withdraw"))
+            self._balance-=amount
+            print(f"Your balance is {self._balance}")
         
-    def display(self):
-        print("Account details")
-        print(f"{self.name}\n{self.city}\n{self.ac_number}\n")
 class account:
     def __init__(self,Deposit="",check_bal=""):
        self.Deposit=Deposit
